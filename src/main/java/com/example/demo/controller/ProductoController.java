@@ -27,13 +27,6 @@ public class ProductoController {
         return productoService.listarTodos();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Producto> obtener(@PathVariable Long id) {
-        return productoService.obtenerPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Producto> actualizar(@PathVariable Long id, @RequestBody Producto producto) {
         return productoService.actualizar(id, producto)

@@ -21,22 +21,28 @@ public class ProductoService {
     }
 
     public Producto crear(Producto producto) {
+
         //ProductoEntity entity = productoAdapter.toEntity(producto); //F3
         //entity.setId(null); //F3
         //ProductoEntity guardada = productoRepository.save(entity); //F3
         //return productoAdapter.toModel(guardada); //F3
+
         Producto respuesta = new Producto();
+
         //respuesta.setId(1L); //F2
         //respuesta.setNombre(producto.getNombre()); //F2
         //respuesta.setPrecio(producto.getPrecio()); //F2
         //respuesta.setStock(producto.getStock()); //F2
+
         return respuesta;
     }
 
     public List<Producto> listarTodos() {
+
         //return productoRepository.findAll().stream() //F3
         //        .map(productoAdapter::toModel) //F3
         //        .toList(); //F3
+
         //Producto p1 = new Producto(); //F2
         //p1.setId(1L); //F2
         //p1.setNombre("Camiseta algodón"); //F2
@@ -53,24 +59,12 @@ public class ProductoService {
         //p3.setPrecio(new java.math.BigDecimal("89.00")); //F2
         //p3.setStock(8); //F2
         //return List.of(p1, p2, p3); //F2
+
         return List.of();
     }
 
-    public Optional<Producto> obtenerPorId(Long id) {
-        //return productoRepository.findById(id).map(productoAdapter::toModel); //F3
-        //if (Long.valueOf(1L).equals(id)) { //F2
-        //    Producto p = new Producto(); //F2
-        //    p.setId(1L); //F2
-        //    p.setNombre("Camiseta algodón"); //F2
-        //    p.setPrecio(new java.math.BigDecimal("19.99")); //F2
-        //    p.setStock(40); //F2
-        //    return Optional.of(p); //F2
-        //} //F2
-        //return Optional.empty(); //F2
-        return Optional.empty();
-    }
-
     public Optional<Producto> actualizar(Long id, Producto datos) {
+
         //Optional<ProductoEntity> existente = productoRepository.findById(id); //F3
         //if (existente.isEmpty()) { //F3
         //    return Optional.empty(); //F3
@@ -81,6 +75,7 @@ public class ProductoService {
         //entity.setStock(datos.getStock()); //F3
         //ProductoEntity guardada = productoRepository.save(entity); //F3
         //return Optional.of(productoAdapter.toModel(guardada)); //F3
+
         //if (Long.valueOf(1L).equals(id)) { //F2
         //    Producto p = new Producto(); //F2
         //    p.setId(1L); //F2
@@ -90,16 +85,20 @@ public class ProductoService {
         //    return Optional.of(p); //F2
         //} //F2
         //return Optional.empty(); //F2
+
         return Optional.empty();
     }
 
     public boolean eliminar(Long id) {
+
         //if (!productoRepository.existsById(id)) { //F3
         //    return false; //F3
         //} //F3
         //productoRepository.deleteById(id); //F3
         //return true; //F3
+
         //return true; //F2
+
         return false;
     }
 }

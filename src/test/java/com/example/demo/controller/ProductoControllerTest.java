@@ -43,15 +43,6 @@ class ProductoControllerTest {
     }
 
     @Test
-    @DisplayName("READ uno: GET /productos/{id}")
-    void obtenerProductoPorId() throws Exception {
-        mockMvc.perform(get("/productos/1"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
-                .andExpect(jsonPath("$.nombre").value("Camiseta algodón"));
-    }
-
-    @Test
     @DisplayName("READ lista: GET /productos debe devolver datos iniciales")
     void listarProductos() throws Exception {
         mockMvc.perform(get("/productos"))
@@ -81,13 +72,9 @@ class ProductoControllerTest {
     }
 
     @Test
-    @DisplayName("DELETE: DELETE /productos/{id} y luego 404 al leer")
+    @DisplayName("DELETE: DELETE /productos/{id}")
     void eliminarProducto() throws Exception {
-        // Usa id=3 de data.sql (no depende de POST /crear, que está en ROJO para la expo)
         mockMvc.perform(delete("/productos/3"))
                 .andExpect(status().isNoContent());
-
-        mockMvc.perform(get("/productos/3"))
-                .andExpect(status().isNotFound());
     }
 }

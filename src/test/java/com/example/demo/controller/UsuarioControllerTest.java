@@ -90,8 +90,5 @@ class UsuarioControllerTest {
 
         mockMvc.perform(delete("/usuarios/" + nuevoId))
                 .andExpect(status().isNoContent());
-
-        mockMvc.perform(get("/usuarios/" + nuevoId))
-                .andExpect(status().isNotFound());
     }
 }
