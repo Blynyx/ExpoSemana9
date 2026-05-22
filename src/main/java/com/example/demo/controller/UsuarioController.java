@@ -27,6 +27,13 @@ public class UsuarioController {
         return usuarioService.listarTodos();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> obtener(@PathVariable Long id) {
+        return usuarioService.obtenerPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> actualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
         return usuarioService.actualizar(id, usuario)

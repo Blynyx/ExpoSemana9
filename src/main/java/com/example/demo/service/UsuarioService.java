@@ -20,95 +20,75 @@ public class UsuarioService {
         this.usuarioAdapter = usuarioAdapter;
     }
 
-    // ══════════════════════════════
-    // CREATE — UsuarioControllerTest
-    // ══════════════════════════════
     public Usuario crear(Usuario usuario) {
-        // ROJO
-        return new Usuario();
-
-        // VERDE (F2) — sin repository ni adapter; id temporal para $.id
-        //Usuario respuesta = new Usuario();
-        //respuesta.setId(99L);
-        //respuesta.setNombre(usuario.getNombre());
-        //respuesta.setCorreo(usuario.getCorreo());
-        //return respuesta;
-
-        // REFACTOR (F3)
-        //UsuarioEntity entity = usuarioAdapter.toEntity(usuario);
-        //entity.setId(null);
-        //UsuarioEntity guardada = usuarioRepository.save(entity);
-        //return usuarioAdapter.toModel(guardada);
+        //UsuarioEntity entity = usuarioAdapter.toEntity(usuario); //F3
+        //entity.setId(null); //F3
+        //UsuarioEntity guardada = usuarioRepository.save(entity); //F3
+        //return usuarioAdapter.toModel(guardada); //F3
+        Usuario respuesta = new Usuario();
+        //respuesta.setId(99L); //F2
+        //respuesta.setNombre(usuario.getNombre()); //F2
+        //respuesta.setCorreo(usuario.getCorreo()); //F2
+        return respuesta;
     }
 
-    // ══════════════════════════════════
-    // READ lista — UsuarioControllerTest
-    // ══════════════════════════════════
     public List<Usuario> listarTodos() {
-        // ROJO
+        //return usuarioRepository.findAll().stream() //F3
+        //        .map(usuarioAdapter::toModel) //F3
+        //        .toList(); //F3
+        //Usuario u1 = new Usuario(); //F2
+        //u1.setId(1L); //F2
+        //u1.setNombre("Ana Pérez"); //F2
+        //u1.setCorreo("ana.perez@ejemplo.com"); //F2
+        //Usuario u2 = new Usuario(); //F2
+        //u2.setId(2L); //F2
+        //u2.setNombre("Luis García"); //F2
+        //u2.setCorreo("luis.garcia@ejemplo.com"); //F2
+        //return List.of(u1, u2); //F2
         return List.of();
-
-        // VERDE (F2) — lista temporal fija (data.sql)
-        //Usuario u1 = new Usuario();
-        //u1.setId(1L);
-        //u1.setNombre("Ana Pérez");
-        //u1.setCorreo("ana.perez@ejemplo.com");
-        //Usuario u2 = new Usuario();
-        //u2.setId(2L);
-        //u2.setNombre("Luis García");
-        //u2.setCorreo("luis.garcia@ejemplo.com");
-        //return List.of(u1, u2);
-
-        // REFACTOR (F3)
-        //return usuarioRepository.findAll().stream()
-        //        .map(usuarioAdapter::toModel)
-        //        .toList();
     }
 
-    // ══════════════════════════════
-    // UPDATE — UsuarioControllerTest
-    // ══════════════════════════════
-    public Optional<Usuario> actualizar(Long id, Usuario datos) {
-        // ROJO
+    public Optional<Usuario> obtenerPorId(Long id) {
+        //return usuarioRepository.findById(id).map(usuarioAdapter::toModel); //F3
+        //if (Long.valueOf(1L).equals(id)) { //F2
+        //    Usuario u = new Usuario(); //F2
+        //    u.setId(1L); //F2
+        //    u.setNombre("Ana Pérez"); //F2
+        //    u.setCorreo("ana.perez@ejemplo.com"); //F2
+        //    return Optional.of(u); //F2
+        //} //F2
+        //return Optional.empty(); //F2
         return Optional.empty();
-
-        // VERDE (F2) — respuesta temporal sin persistir
-        //if (Long.valueOf(1L).equals(id)) {
-        //    Usuario u = new Usuario();
-        //    u.setId(1L);
-        //    u.setNombre(datos.getNombre());
-        //    u.setCorreo(datos.getCorreo());
-        //    return Optional.of(u);
-        //}
-        //return Optional.empty();
-
-        // REFACTOR (F3)
-        //Optional<UsuarioEntity> existente = usuarioRepository.findById(id);
-        //if (existente.isEmpty()) {
-        //    return Optional.empty();
-        //}
-        //UsuarioEntity entity = existente.get();
-        //entity.setNombre(datos.getNombre());
-        //entity.setCorreo(datos.getCorreo());
-        //UsuarioEntity guardada = usuarioRepository.save(entity);
-        //return Optional.of(usuarioAdapter.toModel(guardada));
     }
 
-    // ══════════════════════════════
-    // DELETE — UsuarioControllerTest
-    // ══════════════════════════════
+    public Optional<Usuario> actualizar(Long id, Usuario datos) {
+        //Optional<UsuarioEntity> existente = usuarioRepository.findById(id); //F3
+        //if (existente.isEmpty()) { //F3
+        //    return Optional.empty(); //F3
+        //} //F3
+        //UsuarioEntity entity = existente.get(); //F3
+        //entity.setNombre(datos.getNombre()); //F3
+        //entity.setCorreo(datos.getCorreo()); //F3
+        //UsuarioEntity guardada = usuarioRepository.save(entity); //F3
+        //return Optional.of(usuarioAdapter.toModel(guardada)); //F3
+        //if (Long.valueOf(1L).equals(id)) { //F2
+        //    Usuario u = new Usuario(); //F2
+        //    u.setId(1L); //F2
+        //    u.setNombre(datos.getNombre()); //F2
+        //    u.setCorreo(datos.getCorreo()); //F2
+        //    return Optional.of(u); //F2
+        //} //F2
+        //return Optional.empty(); //F2
+        return Optional.empty();
+    }
+
     public boolean eliminar(Long id) {
-        // ROJO
+        //if (!usuarioRepository.existsById(id)) { //F3
+        //    return false; //F3
+        //} //F3
+        //usuarioRepository.deleteById(id); //F3
+        //return true; //F3
+        //return true; //F2
         return false;
-
-        // VERDE (F2) — confirma borrado sin repository
-        //return true;
-
-        // REFACTOR (F3)
-        //if (!usuarioRepository.existsById(id)) {
-        //    return false;
-        //}
-        //usuarioRepository.deleteById(id);
-        //return true;
     }
 }

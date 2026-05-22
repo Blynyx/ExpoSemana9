@@ -43,6 +43,15 @@ class ProductoControllerTest {
     }
 
     @Test
+    @DisplayName("READ uno: GET /productos/{id}")
+    void obtenerProductoPorId() throws Exception {
+        mockMvc.perform(get("/productos/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.nombre").value("Camiseta algodón"));
+    }
+
+    @Test
     @DisplayName("READ lista: GET /productos debe devolver datos iniciales")
     void listarProductos() throws Exception {
         mockMvc.perform(get("/productos"))
